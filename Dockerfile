@@ -10,7 +10,7 @@ RUN yum -y install epel-release \
 
 ADD highway.spec /root/rpmbuild/SPECS/
 
-RUN version=`awk '$1=="Version:" {print $2}' /root/rpmbuild/SPECS/nodejs.spec` \
+RUN version=`awk '$1=="Version:" {print $2}' /root/rpmbuild/SPECS/highway.spec` \
  && curl -sL -o /root/rpmbuild/SOURCES/v${version}.tar.xz https://github.com/tkengo/highway/archive/v${version}.tar.gz \
  && rpmbuild -bs /root/rpmbuild/SPECS/highway.spec
 

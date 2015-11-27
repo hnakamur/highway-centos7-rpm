@@ -36,5 +36,5 @@ ${project_name}
 fi
 version=`awk '$1=="Version:" {print $2}' ${spec_file}`
 release=$(rpm --eval `awk '$1=="Release:" {print $2}' ${spec_file}`)
-srpm_file=/root/rpmbuild/SRPMS/nodejs-${version}-${release}.src.rpm
+srpm_file=/root/rpmbuild/SRPMS/${project_name}-${version}-${release}.src.rpm
 copr-cli build --nowait ${project_name} ${srpm_file}
